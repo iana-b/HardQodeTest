@@ -10,11 +10,10 @@ class ProductList(generics.ListAPIView):
     permission_classes = [IsAuthenticated]
 
 
-# class LessonListView(generics.ListAPIView):
-#     serializer_class = LessonSerializer
-#     permission_classes = [IsAuthenticated]
-#
-#     def get_queryset(self):
-#         product_id = self.kwargs['product_id']
-#         return Lesson.objects.filter(product_id=product_id)
+class LessonList(generics.ListAPIView):
+    serializer_class = LessonSerializer
+    permission_classes = [IsAuthenticated]
 
+    def get_queryset(self):
+        product_id = self.kwargs['product_id']
+        return Lesson.objects.filter(product_id=product_id)
